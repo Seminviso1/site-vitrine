@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
-import CardGrid from '../components/CardGrid';
 import { mockSustainableTechnologies } from '../lib/mockData';
 
 const filters = {
@@ -46,8 +45,8 @@ function SustainableTechnologiesPage() {
 
   return (
     <TemplatePageLayout
-      title="Sustainable Technologies"
-      subtitle="Explore eco-friendly and renewable technology solutions"
+      title="Tecnologia sustentável"
+      subtitle="Explore soluções tecnológicas ecológicas e renováveis"
       filters={filters}
       items={filteredItems}
     >

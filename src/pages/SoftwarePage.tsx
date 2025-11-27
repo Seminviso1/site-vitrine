@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
-import CardGrid from '../components/CardGrid';
 import { mockSoftware } from '../lib/mockData';
 
 const filters = {
@@ -47,7 +46,7 @@ function SoftwarePage() {
   return (
     <TemplatePageLayout
       title="Software"
-      subtitle="Explore software solutions and platforms"
+      subtitle="Explore soluções e plataformas de software"
       filters={filters}
       items={filteredItems}
     >

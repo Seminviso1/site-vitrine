@@ -17,14 +17,14 @@ function SearchSection({ searchValue, onSearchChange, onFilterClick }: SearchSec
           <input
             type="text"
             className="search-bar"
-            placeholder="Search by name, technology, category…"
+            placeholder="Pesquise por nome, tecnologia, categoria…"
             value={searchValue}
             onChange={(e) => onSearchChange(e.target.value)}
           />
         </div>
         <button className="filter-button" onClick={onFilterClick}>
           <Sliders size={18} />
-          <span>Filters</span>
+          <span>Filtro</span>
         </button>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
-import CardGrid from '../components/CardGrid';
 import { mockTrademarks } from '../lib/mockData';
 
 const filters = {
@@ -46,8 +45,8 @@ function TrademarksPage() {
 
   return (
     <TemplatePageLayout
-      title="Trademarks"
-      subtitle="Discover registered trademarks and brand marks"
+      title="Marcas"
+      subtitle="Descubra marcas registradas"
       filters={filters}
       items={filteredItems}
     >

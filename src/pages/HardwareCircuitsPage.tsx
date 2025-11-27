@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
-import CardGrid from '../components/CardGrid';
 import { mockHardwareCircuits } from '../lib/mockData';
 
 const filters = {
@@ -46,8 +45,8 @@ function HardwareCircuitsPage() {
 
   return (
     <TemplatePageLayout
-      title="Hardware & Circuits"
-      subtitle="Discover hardware components and circuit designs"
+      title="Topografia de circuito"
+      subtitle="Descubra componentes de hardware e projetos de circuitos"
       filters={filters}
       items={filteredItems}
     >

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
-import CardGrid from '../components/CardGrid';
 import { mockIndustrialDesigns } from '../lib/mockData';
 
 const filters = {
@@ -46,8 +45,8 @@ function IndustrialDesignsPage() {
 
   return (
     <TemplatePageLayout
-      title="Industrial Designs"
-      subtitle="Browse industrial design innovations and prototypes"
+      title="Desenhos industriais"
+      subtitle="Explore inovações de design industrial e protótipos"
       filters={filters}
       items={filteredItems}
     >

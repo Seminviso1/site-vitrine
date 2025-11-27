@@ -8,7 +8,7 @@ function SearchBar() {
         <input
           type="text"
           className="search-input"
-          placeholder="Search technologies…"
+          placeholder="Descubra novas tecnologias"
         />
         <Search className="search-icon" size={20} />
       </div>

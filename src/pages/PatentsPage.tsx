@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
-import CardGrid from '../components/CardGrid';
 import { mockPatents } from '../lib/mockData';
 
 const filters = {
@@ -46,8 +45,8 @@ function PatentsPage() {
 
   return (
     <TemplatePageLayout
-      title="Patents"
-      subtitle="Search and explore our patent portfolio"
+      title="Patentes"
+      subtitle="Pesquise e explore nosso portfólio de patentes"
       filters={filters}
       items={filteredItems}
     >

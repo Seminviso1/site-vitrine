@@ -7,17 +7,17 @@ function CategoriesGrid() {
 
   const categories = [
     {
-      title: 'Patents',
+      title: 'Patentes',
       image: 'https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=800',
       path: '/patents',
     },
     {
-      title: 'Trademarks',
+      title: 'Marcas',
       image: 'https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800',
       path: '/trademarks',
     },
     {
-      title: 'Industrial Designs',
+      title: 'Desenhos industriais',
       image: 'https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=800',
       path: '/industrial-designs',
     },
@@ -27,12 +27,12 @@ function CategoriesGrid() {
       path: '/software',
     },
     {
-      title: 'Hardware & Circuits',
+      title: 'Topografia de circuito',
       image: 'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800',
       path: '/hardware-circuits',
     },
     {
-      title: 'Sustainable Technologies',
+      title: 'Tecnologia sustentável',
       image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800',
       path: '/sustainable-technologies',
     },
