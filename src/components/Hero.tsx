@@ -4,10 +4,10 @@ function Hero() {
   return (
     <div className="hero-section">
       <div className="hero-content">
-        <h1 className="hero-title">Technology Showcase</h1>
+        <h1 className="hero-title">Vitrine Tecnologica</h1>
         <p className="hero-subtitle">
-          Explore innovative technologies and research discoveries. Search our platform to find patents,
-          trademarks, software, and sustainable solutions that are shaping the future.
+          Explore tecnologias inovadoras e descobertas científicas. Pesquise em nossa plataforma para encontrar patentes, marcas registradas, 
+          softwares e soluções sustentáveis que estão moldando o futuro.
         </p>
       </div>
     </div>
