@@ -1,0 +1,222 @@
+.template-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.template-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.template-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.template-card:hover .template-card-image img {
+  transform: scale(1.05);
+}
+
+.template-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.template-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.template-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.template-card-subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.template-card-subtitle::before {
+  content: '📋';
+  font-size: 12px;
+}
+
+.template-card-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-red {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge-orange {
+  background: #fed7aa;
+  color: #b45309;
+}
+
+.badge-yellow {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.badge-green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.template-card-description {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.template-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.template-card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.tag-blue {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.tag-blue .tag-dot {
+  background: #1e40af;
+}
+
+.tag-purple {
+  background: #e9d5ff;
+  color: #6b21a8;
+}
+
+.tag-purple .tag-dot {
+  background: #6b21a8;
+}
+
+.tag-red {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.tag-red .tag-dot {
+  background: #b91c1c;
+}
+
+.tag-orange {
+  background: #fed7aa;
+  color: #b45309;
+}
+
+.tag-orange .tag-dot {
+  background: #b45309;
+}
+
+.tag-green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.tag-green .tag-dot {
+  background: #16a34a;
+}
+
+.template-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.view-more-button {
+  background: none;
+  border: none;
+  color: #0f3a7d;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+  padding: 4px 0;
+}
+
+.view-more-button:hover {
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .template-card-content {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .template-card-title {
+    font-size: 15px;
+  }
+
+  .template-card-description {
+    font-size: 13px;
+  }
+
+  .template-card-image {
+    height: 180px;
+  }
+}
