@@ -12,7 +12,6 @@ interface Badge {
 }
 
 interface TemplateCardProps {
-  image?: string;
   title: string;
   subtitle?: string;
   description: string;
@@ -22,7 +21,6 @@ interface TemplateCardProps {
 }
 
 function TemplateCard({
-  image,
   title,
   subtitle,
   description,
@@ -32,11 +30,6 @@ function TemplateCard({
 }: TemplateCardProps) {
   return (
     <div className="template-card">
-      {image && (
-        <div className="template-card-image">
-          <img src={image} alt={title} />
-        </div>
-      )}
 
       <div className="template-card-content">
         <div className="template-card-header">

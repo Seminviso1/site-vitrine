@@ -51,7 +51,6 @@ function TrademarksPage() {
       filters={filters}
       items={filteredItems}
     >
-      <CardGrid>
         {filteredItems.map((item) => (
           <TemplateCard
             key={item.id}
@@ -64,7 +63,6 @@ function TrademarksPage() {
             onViewMore={() => console.log('View more:', item.title)}
           />
         ))}
-      </CardGrid>
     </TemplatePageLayout>
   );
 }

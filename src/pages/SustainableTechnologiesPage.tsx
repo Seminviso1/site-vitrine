@@ -51,11 +51,9 @@ function SustainableTechnologiesPage() {
       filters={filters}
       items={filteredItems}
     >
-      <CardGrid>
         {filteredItems.map((item) => (
           <TemplateCard
             key={item.id}
-            image={item.image}
             title={item.title}
             subtitle={item.subtitle}
             description={item.description}
@@ -64,7 +62,6 @@ function SustainableTechnologiesPage() {
             onViewMore={() => console.log('View more:', item.title)}
           />
         ))}
-      </CardGrid>
     </TemplatePageLayout>
   );
 }
