@@ -1,27 +1,34 @@
 import { useState, useEffect } from 'react';
 import ItemCard from './ItemCard';
-import { ApiItem } from '../services/api';
+import { fetchApi } from '../lib/api';
 import './CategoryPageLayout.css';
+
+interface Item {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+}
 
 interface CategoryPageLayoutProps {
   title: string;
-  fetchFunction: () => Promise<ApiItem[]>;
+  endpoint: string;
 }
 
-function CategoryPageLayout({ title, fetchFunction }: CategoryPageLayoutProps) {
-  const [items, setItems] = useState<ApiItem[]>([]);
+function CategoryPageLayout({ title, endpoint }: CategoryPageLayoutProps) {
+  const [items, setItems] = useState<Item[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [endpoint]);
 
   const fetchItems = async () => {
     try {
       setLoading(true);
       setError(null);
-      const data = await fetchFunction();
+      const data = await fetchApi(endpoint);
       setItems(Array.isArray(data) ? data : []);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An error occurred');

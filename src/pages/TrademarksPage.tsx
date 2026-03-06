@@ -1,8 +1,7 @@
 import CategoryPageLayout from '../components/CategoryPageLayout';
-import { fetchTrademarks } from '../services/api';
 
 function TrademarksPage() {
-  return <CategoryPageLayout title="Trademarks" fetchFunction={fetchTrademarks} />;
+  return <CategoryPageLayout title="Trademarks" endpoint="/api/trademarks" />;
 }
 
 export default TrademarksPage;
