@@ -1,5 +1,5 @@
 import CategoryPageLayout from '../components/CategoryPageLayout';
-import { fetchIndustrialDesigns } from '../services/api';
+import { fetchIndustrialDesigns } from '../lib/api';
 
 function IndustrialDesignsPage() {
   return <CategoryPageLayout title="Industrial Designs" fetchFunction={fetchIndustrialDesigns} />;

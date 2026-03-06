@@ -4,9 +4,9 @@ This document describes the API integration architecture for the Vitrine TecnolÃ
 
 ## Architecture Overview
 
-The application has been refactored to use real API endpoints instead of mock data. The architecture follows these principles:
+The application has been refactored to use real API endpoints from the SIMCC API. The architecture follows these principles:
 
-1. **Centralized API Service**: All network requests are handled through `src/services/api.ts`
+1. **Centralized API Service**: All network requests are handled through `src/lib/api.ts`
 2. **Type Safety**: TypeScript interfaces ensure type safety throughout the data flow
 3. **Data Mapping**: API responses are mapped to component-compatible formats
 4. **Error Handling**: Comprehensive error handling with user-friendly messages
@@ -16,33 +16,44 @@ The application has been refactored to use real API endpoints instead of mock da
 
 ### Base URL
 
-The API base URL is configured in `src/services/api.ts`:
+The API base URL is configured in `src/lib/api.ts`:
 
 ```typescript
-export const API_BASE_URL = 'https://api.example.com';
+export const API_BASE_URL = 'https://simcc.uesc.br/v3/api';
 ```
 
-**To update the API URL**: Simply change the `API_BASE_URL` constant in `src/services/api.ts`.
+**To update the API URL**: Simply change the `API_BASE_URL` constant in `src/lib/api.ts`.
 
 ### Available Endpoints
 
 Currently implemented endpoints:
 
-- **Patents**: `GET /production/patent`
-- **Software**: `GET /production/software`
-
-Placeholder endpoints (not yet implemented):
-
-- **Trademarks**: Not yet available
-- **Industrial Designs**: Not yet available
-- **Hardware Circuits**: Not yet available
-- **Sustainable Technologies**: Not yet available
+- **Software**: `GET /software`
+- **Patents**: `GET /patent`
+- **Trademarks**: `GET /trademark`
+- **Industrial Designs**: `GET /industrial-design`
+- **Hardware Circuits**: `GET /hardware-circuit`
+- **Sustainable Technologies**: `GET /sustainable-technology`
 
 ## API Response Format
 
-Based on the provided schema, the API returns data in the following format:
+### Software Response
 
-### Patent/Software Response
+```json
+[
+  {
+    "title": "string",
+    "year": 0,
+    "has_image": false,
+    "relevance": false,
+    "name": "string",
+    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "stars": 0
+  }
+]
+```
+
+### Patent Response (used for Patents, Trademarks, Industrial Designs, Hardware, Sustainable Technologies)
 
 ```json
 [
@@ -65,7 +76,16 @@ Based on the provided schema, the API returns data in the following format:
 
 The API service automatically maps API responses to the component format:
 
-### API Response â†’ Component Props
+### Software Mapping
+
+| API Field | Component Field | Transformation |
+|-----------|----------------|----------------|
+| `id` | `id` | Direct mapping |
+| `title` | `title` | Direct mapping |
+| `year`, `stars` | `description` | Concatenated string |
+| `has_image` | `image` | Conditional: API URL if true, fallback stock photo if false |
+
+### Patent Mapping
 
 | API Field | Component Field | Transformation |
 |-----------|----------------|----------------|
@@ -104,53 +124,6 @@ Each category page handles three states:
 2. **Error**: Shows error message with details
 3. **Success**: Displays grid of items or empty state message
 
-## Adding New Endpoints
-
-To add a new endpoint:
-
-1. **Define the API response interface** in `src/services/api.ts`:
-   ```typescript
-   interface NewCategoryApiResponse {
-     // Define fields based on API schema
-   }
-   ```
-
-2. **Create a mapping function**:
-   ```typescript
-   const mapNewCategoryToItem = (item: NewCategoryApiResponse): ApiItem => ({
-     id: item.id,
-     image: item.has_image
-       ? `${API_BASE_URL}/images/category/${item.id}.jpg`
-       : 'fallback-url',
-     title: item.title,
-     description: `Your description format`
-   });
-   ```
-
-3. **Create a fetch function**:
-   ```typescript
-   export const fetchNewCategory = async (): Promise<ApiItem[]> => {
-     try {
-       const response = await apiClient.get<NewCategoryApiResponse[]>('/endpoint');
-       return response.data.map(mapNewCategoryToItem);
-     } catch (error) {
-       if (error instanceof AxiosError) {
-         throw new Error(`Failed to fetch: ${error.message}`);
-       }
-       throw new Error('Failed to fetch');
-     }
-   };
-   ```
-
-4. **Update the page component**:
-   ```typescript
-   import { fetchNewCategory } from '../services/api';
-
-   function NewCategoryPage() {
-     return <CategoryPageLayout title="Category" fetchFunction={fetchNewCategory} />;
-   }
-   ```
-
 ## Error Handling
 
 The API service handles errors at multiple levels:
@@ -164,28 +137,33 @@ The API service handles errors at multiple levels:
 
 To test the API integration:
 
-1. **Update the API_BASE_URL** to your actual API endpoint
-2. **Ensure CORS is configured** on the API server
-3. **Test each endpoint** individually through the UI
-4. **Verify error handling** by testing with invalid URLs
+1. The API is already connected to `https://simcc.uesc.br/v3/api`
+2. Test each endpoint individually through the UI
+3. Verify error handling by testing with invalid URLs or network conditions
+4. Check that images load correctly based on the `has_image` flag
 
 ## Migration Notes
 
 ### What Changed
 
-- Removed dependency on `src/lib/mockData.ts`
-- Removed `src/lib/api.ts` (old mock API)
-- Created new `src/services/api.ts` with real API integration
-- Updated all page components to use new fetch functions
-- Updated `CategoryPageLayout` to accept `fetchFunction` prop
+- Moved API service from `src/services/api.ts` to `src/lib/api.ts`
+- Updated base URL to use `https://simcc.uesc.br/v3/api`
+- Updated Software endpoint to use correct schema with `name` field
+- Removed all mock data dependencies
+- Deleted files:
+  - `src/lib/mockData.ts` (mock data)
+  - `src/services/api.ts` (old API service)
+  - `src/server.ts` (mock server routes)
 
-### Old Files (Can be Removed)
+### Files That Use the API
 
-These files are no longer used and can be deleted:
-
-- `src/lib/mockData.ts`
-- `src/lib/api.ts`
-- `src/server.ts`
+- `src/components/CategoryPageLayout.tsx` - Main layout component
+- `src/pages/PatentsPage.tsx`
+- `src/pages/SoftwarePage.tsx`
+- `src/pages/TrademarksPage.tsx`
+- `src/pages/IndustrialDesignsPage.tsx`
+- `src/pages/HardwareCircuitsPage.tsx`
+- `src/pages/SustainableTechnologiesPage.tsx`
 
 ## Future Enhancements
 
