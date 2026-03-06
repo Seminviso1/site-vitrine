@@ -1,30 +1,7 @@
-import {
-  mockPatents,
-  mockTrademarks,
-  mockIndustrialDesigns,
-  mockSoftware,
-  mockHardwareCircuits,
-  mockSustainableTechnologies,
-} from './mockData';
+import axios from 'axios'
 
-const mockApiData: Record<string, unknown> = {
-  '/api/patents': mockPatents,
-  '/api/trademarks': mockTrademarks,
-  '/api/industrial-designs': mockIndustrialDesigns,
-  '/api/software': mockSoftware,
-  '/api/hardware-circuits': mockHardwareCircuits,
-  '/api/sustainable-technologies': mockSustainableTechnologies,
-};
+const api = axios.create({
+  baseURL: 'http://simcc.uesc.br/v3/api/'
+})
 
-export const fetchApi = async (endpoint: string) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const data = mockApiData[endpoint];
-      if (data) {
-        resolve(data);
-      } else {
-        resolve([]);
-      }
-    }, 300);
-  });
-};
+export default api 

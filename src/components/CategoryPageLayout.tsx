@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
 import ItemCard from './ItemCard';
-import { fetchApi } from '../lib/api';
+import api from '../lib/api'
 import './CategoryPageLayout.css';
 
 interface Item {
   id: string;
-  image: string;
   title: string;
-  description: string;
+  name: string;
 }
 
 interface CategoryPageLayoutProps {
@@ -20,23 +19,34 @@ function CategoryPageLayout({ title, endpoint }: CategoryPageLayoutProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchItems();
-  }, [endpoint]);
-
+useEffect(() => {
   const fetchItems = async () => {
     try {
       setLoading(true);
       setError(null);
-      const data = await fetchApi(endpoint);
-      setItems(Array.isArray(data) ? data : []);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-      setItems([]);
+      const response = await api.get<Item[]>(endpoint);
+      console.log("Dados da API UESC:", response.data);
+      if (Array.isArray(response.data)) {
+        setItems(response.data);
+      } else {
+        // Caso a API mude para um objeto no futuro
+        console.warn("A API não retornou um array direto. Verifique a estrutura.");
+        setItems([]);
+      }
+      
+    } catch (err: any) {
+      const mensagemErro = err.response?.data?.message || err.message || 'Erro ao carregar dados';
+      setError(mensagemErro);
+      console.error("Erro na requisição:", err);
     } finally {
       setLoading(false);
     }
   };
+
+  if (endpoint) {
+    fetchItems();
+  }
+}, [endpoint]);
 
   return (
     <div className="category-page">
@@ -56,9 +66,8 @@ function CategoryPageLayout({ title, endpoint }: CategoryPageLayoutProps) {
             {items.map((item) => (
               <ItemCard
                 key={item.id}
-                image={item.image}
                 title={item.title}
-                description={item.description}
+                name={item.name}
               />
             ))}
           </div>

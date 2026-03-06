@@ -12,10 +12,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/patents" element={<PatentsPage />} />
+        <Route path="/production/patent" element={<PatentsPage />} />
         <Route path="/trademarks" element={<TrademarksPage />} />
         <Route path="/industrial-designs" element={<IndustrialDesignsPage />} />
-        <Route path="/software" element={<SoftwarePage />} />
+        <Route path="/production/software" element={<SoftwarePage />} />
         <Route path="/hardware-circuits" element={<HardwareCircuitsPage />} />
         <Route path="/sustainable-technologies" element={<SustainableTechnologiesPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />

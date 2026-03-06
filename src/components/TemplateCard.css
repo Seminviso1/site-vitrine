@@ -51,36 +51,6 @@
   font-size: 12px;
 }
 
-.template-card-badge {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-.badge-red {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-.badge-orange {
-  background: #fed7aa;
-  color: #b45309;
-}
-
-.badge-yellow {
-  background: #fef3c7;
-  color: #b45309;
-}
-
-.badge-green {
-  background: #dcfce7;
-  color: #16a34a;
-}
-
 .template-card-description {
   font-size: 14px;
   color: #64748b;
