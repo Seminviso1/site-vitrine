@@ -32,7 +32,11 @@ function CategoriesGrid() {
       path: '/hardware-circuits',
     },
     {
+<<<<<<< HEAD
       title: 'Tecnologia sustentável',
+=======
+      title: 'Indicações geográficas',
+>>>>>>> 47a48b321c7d2253a54f24aafeedc6b566704045
       image: 'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg?auto=compress&cs=tinysrgb&w=800',
       path: '/sustainable-technologies',
     },

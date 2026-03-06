@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
@@ -63,6 +64,13 @@ function HardwareCircuitsPage() {
         ))}
     </TemplatePageLayout>
   );
+=======
+import CategoryPageLayout from '../components/CategoryPageLayout';
+import { fetchHardwareCircuits } from '../services/api';
+
+function HardwareCircuitsPage() {
+  return <CategoryPageLayout title="Hardware & Circuits" fetchFunction={fetchHardwareCircuits} />;
+>>>>>>> 47a48b321c7d2253a54f24aafeedc6b566704045
 }
 
 export default HardwareCircuitsPage;

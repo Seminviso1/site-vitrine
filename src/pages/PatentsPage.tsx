@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
@@ -31,6 +32,13 @@ function PatentsPage() {
         ))}
     </TemplatePageLayout>
   );
+=======
+import CategoryPageLayout from '../components/CategoryPageLayout';
+import { fetchPatents } from '../services/api';
+
+function PatentsPage() {
+  return <CategoryPageLayout title="Patents" fetchFunction={fetchPatents} />;
+>>>>>>> 47a48b321c7d2253a54f24aafeedc6b566704045
 }
 
 export default PatentsPage;

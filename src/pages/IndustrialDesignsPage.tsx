@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react';
 import TemplatePageLayout from '../components/TemplatePageLayout';
 import TemplateCard from '../components/TemplateCard';
@@ -63,6 +64,13 @@ function IndustrialDesignsPage() {
         ))}
     </TemplatePageLayout>
   );
+=======
+import CategoryPageLayout from '../components/CategoryPageLayout';
+import { fetchIndustrialDesigns } from '../services/api';
+
+function IndustrialDesignsPage() {
+  return <CategoryPageLayout title="Industrial Designs" fetchFunction={fetchIndustrialDesigns} />;
+>>>>>>> 47a48b321c7d2253a54f24aafeedc6b566704045
 }
 
 export default IndustrialDesignsPage;
