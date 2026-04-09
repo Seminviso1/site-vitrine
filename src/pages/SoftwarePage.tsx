@@ -1,5 +1,5 @@
 import CategoryPageLayout from '../components/CategoryPageLayout';
-import { fetchSoftware } from '../lib/api';
+import { fetchSoftware } from '../services/api';
 
 function SoftwarePage() {
   return <CategoryPageLayout title="Software" fetchFunction={fetchSoftware} />;

@@ -1,5 +1,5 @@
 import CategoryPageLayout from '../components/CategoryPageLayout';
-import { fetchSustainableTechnologies } from '../lib/api';
+import { fetchSustainableTechnologies } from '../services/api';
 
 function SustainableTechnologiesPage() {
   return <CategoryPageLayout title="Sustainable Technologies" fetchFunction={fetchSustainableTechnologies} />;

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import ItemCard from './ItemCard';
-import { ApiItem } from '../lib/api';
+import { ApiItem } from '../services/api';
 import './CategoryPageLayout.css';
 
 interface CategoryPageLayoutProps {

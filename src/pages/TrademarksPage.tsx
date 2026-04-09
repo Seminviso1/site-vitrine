@@ -1,5 +1,5 @@
 import CategoryPageLayout from '../components/CategoryPageLayout';
-import { fetchTrademarks } from '../lib/api';
+import { fetchTrademarks } from '../services/api';
 
 function TrademarksPage() {
   return <CategoryPageLayout title="Trademarks" fetchFunction={fetchTrademarks} />;

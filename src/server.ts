@@ -5,9 +5,9 @@ import {
   mockSoftware,
   mockHardwareCircuits,
   mockSustainableTechnologies,
-} from './mockData';
+} from './lib/mockData';
 
-const mockApiData: Record<string, unknown> = {
+export const apiRoutes = {
   '/api/patents': mockPatents,
   '/api/trademarks': mockTrademarks,
   '/api/industrial-designs': mockIndustrialDesigns,
@@ -16,15 +16,7 @@ const mockApiData: Record<string, unknown> = {
   '/api/sustainable-technologies': mockSustainableTechnologies,
 };
 
-export const fetchApi = async (endpoint: string) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const data = mockApiData[endpoint];
-      if (data) {
-        resolve(data);
-      } else {
-        resolve([]);
-      }
-    }, 300);
-  });
+export const handleApiRequest = (url: string) => {
+  const pathname = new URL(url, 'http://localhost').pathname;
+  return apiRoutes[pathname as keyof typeof apiRoutes] || null;
 };
