@@ -1,8 +1,7 @@
 import CategoryPageLayout from '../components/CategoryPageLayout';
-import { fetchIndustrialDesigns } from '../services/api';
 
 function IndustrialDesignsPage() {
-  return <CategoryPageLayout title="Industrial Designs" fetchFunction={fetchIndustrialDesigns} />;
+  return <CategoryPageLayout title="Industrial Designs" endpoint="/api/industrial-designs" />;
 }
 
 export default IndustrialDesignsPage;

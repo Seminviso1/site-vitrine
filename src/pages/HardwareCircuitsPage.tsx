@@ -1,8 +1,7 @@
 import CategoryPageLayout from '../components/CategoryPageLayout';
-import { fetchHardwareCircuits } from '../services/api';
 
 function HardwareCircuitsPage() {
-  return <CategoryPageLayout title="Hardware & Circuits" fetchFunction={fetchHardwareCircuits} />;
+  return <CategoryPageLayout title="Hardware & Circuits" endpoint="/api/hardware-circuits" />;
 }
 
 export default HardwareCircuitsPage;
